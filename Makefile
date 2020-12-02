@@ -1,11 +1,11 @@
-CURRENTDAY=$(shell date +'%e')
+CURRENTDAY=$(shell date +'%d')
 
 directory = "day${CURRENTDAY}"
 
 all: | $(directory)
-	@touch "day${CURRENTDAY}/main.go"
-	@touch "day${CURRENTDAY}/main_test.go"
-	@touch "day${CURRENTDAY}/input"
+	@touch "${directory}/main.go"
+	@touch "${directory}/main_test.go"
+	@touch "${directory}/input"
 
 $(directory):
 	@echo "Folder $(directory) does not exist"

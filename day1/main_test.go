@@ -20,3 +20,17 @@ func TestThreeNumbers(t *testing.T) {
 		t.Fail();
 	}
 }
+
+func BenchmarkSumAndMultiply(b *testing.B) {
+	input := []int{1721,979,366,299,675,1456}
+	for n := 0; n < b.N; n++ {
+					SumAndMultiply(input)
+	}
+}
+
+func BenchmarkSumAndMultiplySecond(b *testing.B) {
+	input := []int{1721,979,366,299,675,1456}
+	for n := 0; n < b.N; n++ {
+					SumAndMultiplySecond(input)
+	}
+}

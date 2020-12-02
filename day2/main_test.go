@@ -41,3 +41,15 @@ func TestVerifyPasswordNewPolicy(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkVerifyPassword(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		VerifyPassword(1,3,"a", "abcde")
+	}
+}
+
+func BenchmarkVerifyPasswordNewPolicy(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		VerifyPasswordNewPolicy(1,3,"a", "abcde")
+	}
+}

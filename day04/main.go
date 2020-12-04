@@ -54,9 +54,9 @@ func validValues(token string, value string) bool {
 				}
 			}
 		case "hgt": // cm (150-193) or in (59-76)
-			var re = regexp.MustCompile(`^(?P<num>\d+)(?P<type>in|cm)$`)
-			if re.MatchString(value) {
-				output := re.FindStringSubmatch(value)
+			var ret = regexp.MustCompile(`^(?P<num>\d+)(?P<type>in|cm)$`)
+			if ret.MatchString(value) {
+				output := ret.FindStringSubmatch(value)
 				height := 0
 				if i, err := strconv.Atoi(output[1]); err == nil {
 					height = i
@@ -87,12 +87,11 @@ func validValues(token string, value string) bool {
 					fmt.Println("Invalid ecl", value)
 			}
 		case "pid":
-			if _, err := strconv.Atoi(value); err == nil {
-				if len(value) <= 9 {
+			var reg = regexp.MustCompile(`^[0-9]{9}$`)
+			if reg.MatchString(value) {
 					return true
-				} else {
+			} else {
 					fmt.Println("Invalid pid", value)
-				}
 			}
 	}
 	return false

@@ -11,4 +11,10 @@ $(directory):
 	@echo "Folder $(directory) does not exist"
 	mkdir -p $@
 
+test:
+	go test -v ./...
+
+bench:
+	go test -v -bench=. ./...
+
 .PHONY: all
